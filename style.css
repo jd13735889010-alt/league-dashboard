@@ -6,3 +6,7 @@
 .cardgames{border-top:1px solid #e2eae8;margin-top:16px}.cardgames summary{font-size:12px;font-weight:600}.cardgames .tablewrap{max-height:420px;overflow:auto}.cardgames th{position:sticky;top:0;z-index:1}.cardgames table{font-size:11px}.cardgames td,.cardgames th{padding:11px 12px;white-space:nowrap}.gamewin{color:#22856b}.gameloss{color:#b56b64}
 
 .herodetailhead{margin-top:26px}.hero-best{font-size:9px;background:#e4f4ec;color:#258168;padding:3px 5px;border-radius:4px;margin-left:5px}#herotable{max-height:580px;overflow:auto}#herotable th{position:sticky;top:0;z-index:1}#herosearch{width:250px}
+
+.monthpicker{display:flex;align-items:center;gap:10px;color:#617784}.monthpicker select{min-width:160px}header{position:sticky;top:0;z-index:20;background:#f5f7faee;backdrop-filter:blur(12px)}@media(max-width:700px){header{gap:8px}.monthpicker{gap:4px}.monthpicker select{min-width:120px;font-size:12px;padding:8px}.sectionhead{flex-wrap:wrap}}
+
+html{scroll-padding-top:95px}
