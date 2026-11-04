@@ -4,3 +4,5 @@
 @media(max-width:1100px){.playercard{padding:18px}.cardmetrics strong{font-size:13px}.cardmetrics>div{padding:10px}.scorering{width:65px;height:65px}.scorering>span{width:55px;height:55px;font-size:18px}}@media(max-width:850px){.playergrid{grid-template-columns:1fr}.playercard{padding:23px}.matchdetailinner{grid-template-columns:1fr 1fr}}@media(max-width:700px){#cardpositions{overflow-x:auto}#cardpositions button{white-space:nowrap}.cardmetrics strong{font-size:14px}.matchdetailinner strong{font-size:12px}}
 
 .cardgames{border-top:1px solid #e2eae8;margin-top:16px}.cardgames summary{font-size:12px;font-weight:600}.cardgames .tablewrap{max-height:420px;overflow:auto}.cardgames th{position:sticky;top:0;z-index:1}.cardgames table{font-size:11px}.cardgames td,.cardgames th{padding:11px 12px;white-space:nowrap}.gamewin{color:#22856b}.gameloss{color:#b56b64}
+
+.herodetailhead{margin-top:26px}.hero-best{font-size:9px;background:#e4f4ec;color:#258168;padding:3px 5px;border-radius:4px;margin-left:5px}#herotable{max-height:580px;overflow:auto}#herotable th{position:sticky;top:0;z-index:1}#herosearch{width:250px}
