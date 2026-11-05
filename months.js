@@ -1,4 +1,4 @@
-const MONTH_VERSION='natural-month-20261104';
+const MONTH_VERSION='match-report-20261105';
 const requestedMonth=new URLSearchParams(location.search).get('month');
 const selectedMonth=['2026-10','2026-11'].includes(requestedMonth)?requestedMonth:'2026-10';
 window.IS_NOVEMBER=selectedMonth==='2026-11';
