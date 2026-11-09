@@ -1,4 +1,4 @@
-const MONTH_VERSION='daily-update-20261106';
+const MONTH_VERSION='replay-update-20261109';
 const requestedMonth=new URLSearchParams(location.search).get('month');
 const selectedMonth=['2026-10','2026-11'].includes(requestedMonth)?requestedMonth:'2026-10';
 window.IS_NOVEMBER=selectedMonth==='2026-11';
@@ -15,14 +15,14 @@ window.renderMonth=function(data){
   document.querySelector('.asidebottom small').textContent='进行中 · 更新至 '+new Date(data.source.fetchedAt).toLocaleDateString('zh-CN',{timeZone:'Asia/Shanghai',month:'numeric',day:'numeric'});
   document.querySelector('#overview .eyebrow').textContent='NOVEMBER 2026 · MONTH TO DATE';
   document.querySelector('#overview .subtitle').textContent='Dota 2 联赛 18113 · 2026年11月选手分析 · 进行中';
-  document.querySelector('#overview .stats').innerHTML=[['有效比赛',meta.valid,'场',`${meta.collected} 场采集 · 按北京时间归月`],['参赛选手',meta.playerCount,'人',`${data.players.length} 条位置记录进入分析`],['参赛队伍',meta.teams,'支','按比赛内实际队名统计'],['场均时长',meta.meanDuration.toFixed(1),'分钟',`最近比赛：${meta.lastMatch.replace('-','月')}日`]].map(([label,value,unit,note])=>`<article><small>${label}</small><strong>${value} <em>${unit}</em></strong><p>${note}</p></article>`).join('');
-  document.querySelector('#overview .insights').innerHTML=[['01 / 进行中月份','11月1日 — 11月30日',`已核实 ${meta.valid} 场比赛，最近比赛为 ${meta.lastMatch}。本月数据尚未完整。`],['02 / 评分与评价','按本月表现独立分析','3–4场标注样本偏少；满5场后进入位置排行榜。'],['03 / 数据更新','采集至 '+date,`通过 ${meta.checkedAccounts} 个已知参赛账号回查，并逐场核实联赛。可能遗漏尚未公开或尚未解析的比赛。`]].map(([label,title,note])=>`<article><label>${label}</label><h3>${title}</h3><p>${note}</p></article>`).join('');
+  document.querySelector('#overview .stats').innerHTML=[['有效比赛',meta.valid,'场',`${meta.official??meta.collected} 场联赛${meta.supplemental?' + '+meta.supplemental+' 场录像补录':''} · 北京时间`],['参赛选手',meta.playerCount,'人',`${data.players.length} 条位置记录进入分析`],['参赛队伍',meta.teams,'支','正式联赛比赛内队名；补录按天辉/夜魇展示'],['场均时长',meta.meanDuration.toFixed(1),'分钟',`最近比赛：${meta.lastMatch.replace('-','月')}日`]].map(([label,value,unit,note])=>`<article><small>${label}</small><strong>${value} <em>${unit}</em></strong><p>${note}</p></article>`).join('');
+  document.querySelector('#overview .insights').innerHTML=[['01 / 进行中月份','11月1日 — 11月30日',`已核实 ${meta.valid} 场比赛，最近比赛为 ${meta.lastMatch}。本月数据尚未完整。`],['02 / 评分与评价','按本月表现独立分析','3–4场标注样本偏少；满5场后进入位置排行榜。'],['03 / 数据更新','采集至 '+date,`${data.source.collectionNote||`通过 ${meta.checkedAccounts} 个已知参赛账号回查，并逐场核实联赛。`}${meta.supplemental?'另含用户确认的录像补录，保留实际联赛ID。':''}可能遗漏未公开或未解析比赛。`]].map(([label,title,note])=>`<article><label>${label}</label><h3>${title}</h3><p>${note}</p></article>`).join('');
   const hasRanked=data.players.some(p=>p.E>=5);
   document.querySelector('#ranking .sectionhead > .muted').textContent=hasRanked?'仅展示该位置 ≥5 场的选手记录':'仅展示该位置 ≥5 场；11月目前暂无达标选手';
   document.getElementById('empty').textContent=hasRanked?'当前筛选下没有达标选手。':'11月目前没有在同一位置满5场的选手。可在选手卡片查看3–4场的分析。';
   document.querySelector('#cards > p').textContent='本月达到3场的位置生成卡片；3–4场标注样本偏少。位置根据比赛分路推断，可能存在偏差。';
   document.querySelector('#dimensions').nextElementSibling.textContent='11月按当月比赛独立评分；3–4场样本偏少，满5场进入排名。核心位第五轴为综合评分，辅助位第五轴为视野。';
   document.querySelector('#matches > p').textContent='比分为双方击杀数；按北京时间自然月统计。点击展开查看比赛十人数据。';
-  document.getElementById('source-note').textContent=`11月来源：OpenDota 联赛18113比赛数据，采集时间 ${date}（北京时间）。本月已核实 ${meta.valid} 场、${meta.playerCount} 名选手；静态快照，非实时。评分与评价由本月比赛自动生成。`;
+  document.getElementById('source-note').textContent=`11月来源：OpenDota 联赛18113比赛数据${meta.supplemental?'及'+meta.supplemental+'场用户确认的本地录像补录（实际leagueid=0）':''}，采集时间 ${date}（北京时间）。本月已核实 ${meta.valid} 场、${meta.playerCount} 名选手；静态快照，非实时。评分与评价由本月比赛自动生成。`;
   document.getElementById('sample-note').textContent='3–4场仅供初步参考，满5场进入位置排名。位置由分路与对线数据推断；未公开、尚未解析或不涉及已知参赛账号的比赛可能暂未收录。10月沿用历史月报，11月使用自动分析，跨月分数不宜直接比较。';
 };
