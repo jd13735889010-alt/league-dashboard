@@ -86,9 +86,9 @@ const root=document.getElementById('position-stats');if(!root)return;
 const e=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const groups=[
  ['战绩与评分',[
- ['games','场次',0],['wins','胜场',0],['losses','负场',0],['winrate','胜率','%'],['mvps','MVP',0],['minutes','场均时长 / 分',1],['score','综合评分',1],['scoreStd','评分标准差',1],['laneScore','对线发育评分',1],['resourceScore','资源效率评分',1],['outputScore','输出评分',1],['survivalScore','生存评分',1],['fightScore','参团评分',1],['pushScore','推进评分',1],['visionScore','视野评分',1]]],
+ ['games','场次',0],['wins','胜场',0],['losses','负场',0],['winrate','胜率','%'],['mvps','MVP',0],['minutes','场均时长 / 分',1],['score','综合评分',1]]],
  ['击杀与生存',[
- ['killsTotal','总击杀',0],['deathsTotal','总死亡',0],['assistsTotal','总助攻',0],['kills','场均击杀',1],['deaths','场均死亡',1],['assists','场均助攻',1],['kda','KDA',2],['death10','死亡 / 10分钟',2]]],
+ ['kills','场均击杀',1],['deaths','场均死亡',1],['assists','场均助攻',1],['kda','KDA',2],['death10','死亡 / 10分钟',2]]],
  ['发育与对线',[
  ['gold_per_min','GPM',0],['xp_per_min','XPM',0],['last_hits','场均补刀',1],['denies','场均反补',1],['lh10','10分钟补刀',1],['lane_diff','对位10分钟经济差',0],['net_worth','场均结束净资产',0],['wealth_share','队内净资产占比','%'],['level','场均结束等级',1]]],
  ['输出与推进',[
