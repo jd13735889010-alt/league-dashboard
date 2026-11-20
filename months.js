@@ -1,4 +1,4 @@
-const MONTH_VERSION='cloud-661a1a6b827c';
+const MONTH_VERSION='cloud-1126ffaaea34';
 const requestedMonth=new URLSearchParams(location.search).get('month');
 const selectedMonth=/^20\d\d-(0[1-9]|1[0-2])$/.test(requestedMonth||'')?requestedMonth:'2026-10';
 window.IS_NOVEMBER=selectedMonth!=='2026-10';
